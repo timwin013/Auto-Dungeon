@@ -1,8 +1,8 @@
-# Auto-Dungeon
+# AutoDungeon
 
 Group agile software engineering project
 
-Tim Win;
+Tim Win \n
 Drew Dundee;
 Naomi Okiddy;
 Qinyuan Zhuang;
