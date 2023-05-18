@@ -2,7 +2,7 @@
 
 Group agile software engineering project
 
-Tim Win \n
+Tim Win;
 Drew Dundee;
 Naomi Okiddy;
 Qinyuan Zhuang;
