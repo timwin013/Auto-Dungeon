@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class ObjectClick : MonoBehaviour
 
@@ -33,12 +33,12 @@ public class ObjectClick : MonoBehaviour
             if (nodes[i].GetComponent<NodeInfo>().NodeNumber < ActiveNode)
             {
                 nodes[i].GetComponent<SpriteRenderer>().color = Color.grey;
-                nodes[i].GetComponent<Light2D>().intensity = 0;
+                nodes[i].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
             }
 
             if (nodes[i].GetComponent<NodeInfo>().NodeNumber == ActiveNode)
             {
-                nodes[i].GetComponent<Light2D>().intensity = 1;
+                nodes[i].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
             }
 
             if (nodes[i].GetComponent<NodeInfo>().NodeNumber == ActiveNode && ActiveBranch == 1)
@@ -111,7 +111,7 @@ public class ObjectClick : MonoBehaviour
         if (NodeNumber == ActiveNode)
         {
             // Always turn off node when clicked
-            go.GetComponent<Light2D>().intensity = 0;
+            go.GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
             go.GetComponent<SpriteRenderer>().color = Color.grey;
             for (int i = 0; i < connectors.Count; i++)
             {
@@ -124,23 +124,23 @@ public class ObjectClick : MonoBehaviour
             // Not in a branch 
             if (BranchNumber == 0 && AtStartOfBranch == 0)
             {
-                nodes[Index + 1].GetComponent<Light2D>().intensity = 1;
+                nodes[Index + 1].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
             }
 
             // At start of 2 branching paths
             if (BranchNumber == 0 && AtStartOfBranch == 1)
             {
-                nodes[Index + 1].GetComponent<Light2D>().intensity = 1;
-                nodes[Index + 2].GetComponent<Light2D>().intensity = 1;
+                nodes[Index + 1].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
+                nodes[Index + 2].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
             }
 
             // On first branch with 1 node
             if (BranchNumber == 1)
             {
-                nodes[Index + 3].GetComponent<Light2D>().intensity = 1;
-                nodes[Index + 1].GetComponent<Light2D>().intensity = 0;
+                nodes[Index + 3].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
+                nodes[Index + 1].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
                 nodes[Index + 1].GetComponent<SpriteRenderer>().color = Color.grey;
-                nodes[Index + 2].GetComponent<Light2D>().intensity = 0;
+                nodes[Index + 2].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
                 nodes[Index + 2].GetComponent<SpriteRenderer>().color = Color.grey;
                 for (int i = 0; i < connectors.Count; i++)
                 {
@@ -156,8 +156,8 @@ public class ObjectClick : MonoBehaviour
             // On second branch and at start of branch
             if (BranchNumber == 2 && nodes[Index + 1].GetComponent<NodeInfo>().BranchNumber == 2)
             {
-                nodes[Index + 1].GetComponent<Light2D>().intensity = 1;
-                nodes[Index - 1].GetComponent<Light2D>().intensity = 0;
+                nodes[Index + 1].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
+                nodes[Index - 1].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
                 nodes[Index - 1].GetComponent<SpriteRenderer>().color = Color.grey;
 
                 for (int i = 0; i < connectors.Count; i++)
@@ -173,7 +173,7 @@ public class ObjectClick : MonoBehaviour
             // On second branch and at end of branch
             if (BranchNumber == 2 && nodes[Index + 1].GetComponent<NodeInfo>().BranchNumber == 0)
             {
-                nodes[Index + 1].GetComponent<Light2D>().intensity = 1;
+                nodes[Index + 1].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 1;
                 ActiveBranch = 2;
             }
 
